@@ -1,13 +1,49 @@
 import type { CollectionConfig } from 'payload'
+import configPromise from '@payload-config'
+
+import { getPayload } from 'payload'
+import { authenticated, isAdmin } from '@/access/authenticated'
 
 export const Users: CollectionConfig = {
-  slug: 'users',
-  admin: {
-    useAsTitle: 'email',
+  labels: {
+    plural: 'IAM',
+    singular: 'IAM',
   },
-  auth: true,
+  slug: 'users',
+  access: {
+    admin: authenticated,
+    create: isAdmin,
+    delete: isAdmin,
+    read: isAdmin,
+    update: isAdmin,
+  },
+  admin: {
+    defaultColumns: ['name', 'email', 'role', 'createdAt'],
+    useAsTitle: 'name',
+    group: 'Settings'
+  },
+  auth: {
+    verify: false, // TODO - set to true
+    maxLoginAttempts: 10,
+
+  },
   fields: [
-    // Email added by default
-    // Add more fields as needed
+    {
+      name: 'name',
+      type: 'text',
+    },
+    {
+      name: 'role',
+      type: 'select',
+      required: true,
+      defaultValue: 'editor',
+      options: [
+        { label: 'Admin', value: 'admin' },
+        { label: 'Editor', value: 'editor' },
+        { label: 'Viewer', value: 'viewer' },
+        { label: 'Contributor', value: 'contributor' },
+      ],
+    },
   ],
+  timestamps: true,
 }

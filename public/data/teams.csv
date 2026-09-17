@@ -1,0 +1,28 @@
+id,Abbr,Team,School,Nickname,Address,Primary logo,Varsity Teams,Primary color
+benet,BNT,Benet,Benet Academy,Redhawks,"Western Suburbs, 2200 Maple Ave, Lisle, IL 60532",benet-1.png,,#e2233b,
+brother-rice,BR,Brother Rice,Brother Rice,Crusaders,"10001 S Pulaski Rd, Chicago, IL 60655",brother-rice-1.png,,#582932
+carmel-catholic,CC,Carmel Catholic,Carmel Catholic,Corsairs,"1 Carmel Pkwy, Mundelein, IL 60060",carmel-catholic-2.png,,#ffffff
+deerfield,DF,Deerfield,Deerfield,,,deerfield-1.png,
+evanston,EVS,Evanston,Evanston,,,evanston-1.png,
+fenwick,FWK,Fenwick,Fenwick,Friars,"505 Washington Blvd, Oak Park, IL 60302",fenwick-1.png,,#000000
+glenbrook-north,GBN,Glenbrook North,Glenbrook North,,,glenbrook-north-2.png,"Green, Gold",#004826
+glenbrook-south,GBS,Glenbrook South,Glenbrook South,Titans,"4000 W Lake Ave, Glenview, IL 60026",glenbrook-south-1.png,"V1, Blue",#201444
+highland-park,HDP,Highland Park,Highland Park,,,,
+hinsdale-central,HC,Hinsdale Central,Hinsdale Central,,,,
+lake-forest,LF,Lake Forest,Lake Forest,Scouts,"1500 Kennedy Rd, Lake Forest, IL 60045",lake-forest-1.png,"Gold, Blue",#1d3d7c
+loyola,LA,Loyola,Loyola Academy,Ramblers,"1100 Laramie Ave, Wilmette, IL 60091",loyola-1.png,,#79013e
+lyons,LT,Lyons,Lyons,,,,
+marmion,MA,Marmion,Marmion,Cadets,"1000 Butterfield Rd, Aurora, IL 60502",,
+mount-carmel,MC,Mount Carmel,Mount Carmel,Caravan,"6410 S Dante Ave, Chicago, IL 60637",mount-carmel-2.png,,#522c21
+neuqua-valley,NV,Neuqua Valley,Neuqua Valley,,,,
+new-trier,NT,New Trier,New Trier,Trevian,"385 Winnetka Ave Rm 463, Winnetka, IL 60093",new-trier-1.png,"Green, Blue, White",#0d2043
+notre-dame,ND,Notre Dame,Notre Dame,Dons,"7655 W Dempster St, Niles, IL 60714",norte-dame.png,,#ffffff
+oprf,OPRF,Oak Park-River Forest,,,,
+providence,PROVI,Providence Catholic,Providence Catholic,Celtics,"1800 W Lincoln Hwy, New Lenox, IL 60451",providence-1.png,,#ffffff
+ignatius,SICP,Ignatius,Saint Ignatius,Wolfpack,"1076 Roosevelt Rd, Chicago, IL 60608",ignatius-7.jpg,"Gold, Maroon",#552B35
+saint-rita,RITA,Saint Rita,Saint Rita,Mustangs,"7740 S Western Ave, Chicago, IL 60620",saint-rita-1.png,,#192851
+saint-viator,SV,Saint Viator,Saint Viator,Lions,"1213 E Oakton St, Arlington Heights, IL 60004",saint-viator-1.png,"V1, V2",#ffffff
+stevenson,STV, Stevenson,Stevenson,Patriots,"1 Stevenson Dr, Lincolnshire, IL 60069",stevenson-3.png,Green,#1f5d39
+warren,WRN, Warren,Warren,,,,
+depaul,DP, DePaul,DePaul College Prep,,,depaul.png,,#ffffff
+york,YORK,York,York,Dukes,"355 W St Charles Rd, Elmhurst, IL 60126",york-1.png,"Black, White",#018a5e
