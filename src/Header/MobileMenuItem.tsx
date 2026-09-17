@@ -1,5 +1,4 @@
 'use client'
-
 import * as Accordion from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -30,7 +29,7 @@ export function MobileMenuItem({ item, className = "", textClassName = "" }: {
                 "bg-near-black!"
             )}>
                 <div className="flex-1 min-w-0 h-fit">
-                    <Button key={item.label} className={cn(
+                    <Button className={cn(
                         'flex justify-start w-full h-full border-none cursor-pointer font-qb rounded-xs  border-0 whitespace-normal leading-tight bg-transparent!',
 
                     )}>

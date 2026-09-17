@@ -55,7 +55,7 @@ export default async function DesktopHeader() {
                 </div>
                 <div className="flex w-full h-2 bg-white"></div>
                 {/* LETTERHEAD */}
-                <div className="sticky top-0 items-center justify-center w-full h-10 bg-primary px-4">
+                <div className="sticky flex top-0 items-center justify-center w-full h-10 bg-primary px-4">
 
 
                     <div className="flex w-full items-center gap-0 max-w-[80rem] h-full">
