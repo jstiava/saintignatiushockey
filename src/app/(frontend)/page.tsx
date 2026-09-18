@@ -7,6 +7,9 @@ import { fileURLToPath } from 'url'
 import config from '@/payload.config'
 import './styles.css'
 import { cn } from '@/lib/utils'
+import ServerMobileSchedule from '@/app/(frontend)/schedule/[team_id]/ServerMobileSchedule'
+import { Metadata } from 'next'
+import MainCarousel from '@/components/MainCarousel'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -18,14 +21,35 @@ export default async function HomePage() {
 
   return (
     <div className="flex w-full h-fit bg-near-black text-white">
-      <div className={cn(
+
+      {/* Main */}
+      <main className={cn(
         "flex flex-col w-full max-w-[55rem] p-4 ",
         "md:p-8 gap-8"
       )}>
-        <div className="w-full h-fit aspect-[16/9] rounded-sm bg-black"></div>
-      </div>
+        <MainCarousel />
+
+        {/* Schedule & Agenda */}
+        <div className="flex w-full h-fit gap-8">
+          <div className="flex w-full max-w-[20rem]">
+            <ServerMobileSchedule theme="dark" />
+          </div>
+
+          <div className="flex flex-1 min-w-0">
+            <div className="flex flex-col gap-2">
+              <h3 className='font-qb text-xl'>Today</h3>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      {/* Sidebar */}
       <div className="hidden md:flex flex-1 min-w-0 h-fit">
         <div className="flex flex-col w-full h-fit p-8 gap-8">
+
+
+
 
 
           {/* Keenan Casey memorial */}
@@ -61,4 +85,19 @@ export default async function HomePage() {
       </div>
     </div>
   )
+}
+
+
+export const metadata: Metadata = {
+  title: 'Saint Ignatius Chicago Hockey | Official Website of the Saint Ignatius Hockey Club',
+  description: 'Find team information, rosters, schedules, events, coaches, program news, and registration info.',
+  keywords: [
+    'Saint Ignatius Hockey',
+    'St. Ignatius Hockey',
+    'Saint Ignatius College Prep Hockey',
+    'Chicago high school hockey',
+    'Chicago hockey',
+    'high school hockey',
+    'Saint Ignatius College Prep',
+  ],
 }

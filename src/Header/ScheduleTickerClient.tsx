@@ -8,10 +8,11 @@ import { Button } from '@/components/ui/button'
 import ScheduleTickerItem from '@/Header/ScheduleTickerItem'
 import Image from 'next/image'
 import * as Popover from "@/components/ui/popover";
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { TEAMS } from '@/app/(frontend)/schedule/[team_id]/SchedulePage'
 import Papa from 'papaparse'
 import { useRouter } from 'next/navigation'
+import { AppContext } from '@/components/AppContext'
 
 
 
@@ -20,6 +21,8 @@ export default function ScheduleTickerClient() {
     const router = useRouter();
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [team, setTeam] = useState<any | null>(null);
+
+    const { today } = useContext(AppContext);
 
     const loadTeam = async (team_id?: string) => {
 
@@ -120,17 +123,21 @@ export default function ScheduleTickerClient() {
                     onClick: e => {
                         router.push(`/admin/login`)
                     }
-                }}>Sign in</Button>
+                }}>Admin</Button>
             </div>
 
             {/* Ticker */}
             <div className="relative flex w-full h-40 bg-white overflow-hidden">
-                <ScrollArea className="flex w-[calc(100%-5rem)] items-center h-full overflow-x-auto overscroll-x-contain">
+                <ScrollArea className="flex w-[calc(100%-5rem)] items-center h-full overflow-x-auto overflow-y-hidden overscroll-x-contain">
                     <div className="flex justify-start w-fit h-full  pl-50">
                         {team.games.map((game: any, index: number) => {
 
                             const rawDate = fromZonedTime(new Date(`${game.date.replace(/^[^,]+,\s*/, '')} ${game.time}`), 'America/Chicago')
-                            const date = new OverplannerDate(rawDate, 'America/Chicago')
+                            const date = new OverplannerDate(rawDate, 'America/Chicago');
+
+                            if (date.isBefore(today.toMidnight())) {
+                                return null;
+                            }
 
                             try {
 

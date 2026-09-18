@@ -15,7 +15,7 @@ export default async function MobileHeader() {
 
     return (
         <>
-            <div className="z-30 md:hidden flex flex-col w-full h-fit bg-white">
+            <div className="z-30 lg:hidden flex flex-col w-full h-fit bg-white">
                 {/* <MobileScheduleTicker /> */}
 
                 <div className="flex items-center justify-center w-full h-20 bg-black">
@@ -29,9 +29,9 @@ export default async function MobileHeader() {
 
             {/* LETTERHEAD */}
 
-            <div className="z-30 md:hidden sticky top-0 flex flex-col w-full h-fit ">
+            <div className="z-30 lg:hidden sticky top-0 flex flex-col w-full h-fit ">
                 <div className="flex items-center justify-between w-full h-[4rem] bg-primary">
-                    <div className="flex flex-col items-center justify-center aspect-square h-full p-[2px] w-[calc(100%-4rem)] bg-[#00000010]">
+                    <a href="/" className="flex flex-col items-center justify-center aspect-square h-full p-[2px] w-[calc(100%-4rem)] bg-[#00000010]">
 
                         {/* Intentness wordmark */}
                         <div className="flex w-full items-center gap-3 px-4 bg-dark-maroon h-full">
@@ -40,7 +40,7 @@ export default async function MobileHeader() {
                         </div>
 
 
-                    </div>
+                    </a>
                     <div className="flex items-center justify-center aspect-square w-[4rem] h-full p-[2px] bg-[#00000010]">
 
                         <Drawer.Drawer swipeDirection="right">

@@ -2,15 +2,15 @@ import React from 'react'
 import './styles.css'
 import './globals.css'
 import localFont from 'next/font/local'
+import type { Metadata } from 'next'
 import Footer from '@/Footer/Component'
 import Header from '@/Header/Header'
 import AppContextProvider from '@/components/AppContext'
 import { getTeamsFile } from '@/Header/ScheduleTicker'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { getServerSideURL } from '@/utilities/getURL'
+import { Geist } from 'next/font/google'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
-}
 
 const QBExtraBoldFont = localFont({
   src: [
@@ -21,6 +21,13 @@ const QBExtraBoldFont = localFont({
     },
   ],
   variable: '--font-qb',
+})
+
+
+
+const GeistFont = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 })
 
 
@@ -48,8 +55,13 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       teams
     }}>
 
-      <html lang="en" className={`${QBExtraBoldFont.variable} ${NHLChicago.variable}`}>
-        <body className='relative flex flex-col w-full h-fit'>
+      <html lang="en" className={`${QBExtraBoldFont.variable} ${NHLChicago.variable} ${GeistFont.variable}`}>
+        <head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <link rel="manifest" href="/manifest.webmanifest" />
+        </head>
+        <body className='relative flex flex-col w-full h-fit font-sans'>
           <Header />
           <div className="flex flex-col w-full h-fit">
             {/* <div className="flex w-full h-30 bg-primary">
@@ -70,4 +82,18 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       </html>
     </AppContextProvider>
   )
+}
+
+
+
+export const metadata: Metadata = {
+  metadataBase: new URL(getServerSideURL()),
+  openGraph: mergeOpenGraph(),
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+
+  },
 }

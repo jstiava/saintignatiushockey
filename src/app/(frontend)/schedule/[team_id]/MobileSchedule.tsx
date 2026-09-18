@@ -29,9 +29,11 @@ const CONSTANT_1 = "0rem"
 export default function MobileSchedule({
     games,
     team_id,
+    theme = 'light'
 }: {
     games: any[],
-    team_id: string
+    team_id: string,
+    theme?: 'dark' | 'light'
 }) {
 
     const today = new OverplannerDate('now', 'America/Chicago')
@@ -39,11 +41,14 @@ export default function MobileSchedule({
     const { teams } = useContext(AppContext)
 
     return (
-        <div className="flex flex-col w-full h-fit gap-0">
+        <div className={cn(
+            "flex flex-col w-full h-fit gap-2 p-1",
+            theme
+        )}>
 
             {/* Sticky header */}
-            <div className="sticky top-16 flex flex-col justify-center items-start z-10 p-1" style={{
-                background: "linear-gradient(to bottom, #ffffff, #ffffff00)"
+            <div className="sticky top-16 flex flex-col justify-center items-start z-10 p-0" style={{
+                background: theme == 'light' ? "linear-gradient(to bottom, #ffffff, #00000000)" : "transparent"
             }}>
 
 
@@ -65,7 +70,14 @@ export default function MobileSchedule({
                                     {TEAMS.map((team, index) => {
 
                                         return (
-                                            <Button variant={'outline'} key={team.slug} value={team.slug} className="font-semibold text-xs flex w-full" >
+                                            <Button
+                                                key={team.slug}
+                                                {...{
+                                                    variant: "outline",
+                                                    value: team.slug,
+                                                    className: "font-semibold text-xs flex w-full"
+                                                }}
+                                            >
                                                 <a href={`/schedule/${team.slug}`}>{team.label}</a>
                                             </Button>
 
@@ -204,7 +216,7 @@ export default function MobileSchedule({
                             <ButtonPrimitive
                                 key={date.print("yyyy-MM-dd")}
                                 className={cn(
-                                    `flex items-center justify-center w-[calc(calc(100%/7)-0.225rem)] aspect-[8/10] rounded-sm  text-border p-[1px] py-[1px] bg-border`,
+                                    `flex items-center justify-center w-[calc(calc(100%/7)-0.225rem)] aspect-[8/10] rounded-xs  text-border p-[1px] py-[1px] bg-border`,
                                     isToday ? "border border-2 border-dark-maroon" : "border border-2"
 
                                 )}>

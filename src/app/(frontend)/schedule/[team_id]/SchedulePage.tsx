@@ -156,7 +156,17 @@ export default function SchedulePage({
                         </div>
                     </div>
 
-                    <h2 className="text-3xl font-black text-black tracking-tight">{selectedDate.print("MMMM yyyy")}</h2>
+                    <h2 className="text-3xl font-black text-black tracking-tight 
+                    [text-shadow:
+                    -2px_-2px_0_white,
+                    0_-2px_0_white,
+                    2px_-2px_0_white,
+                    -2px_0_0_white,
+                    2px_0_0_white,
+                    -2px_2px_0_white,
+                    0_2px_0_white,
+                    2px_2px_0_white]
+                    ">{selectedDate.print("MMMM yyyy")}</h2>
                 </div>
                 <div className="flex gap-4 items-center ">
 

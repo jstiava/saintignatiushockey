@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import * as NavigationMenu from "@/components/ui/navigation-menu";
 import { MENU_ITEMS } from "@/Header";
 import ScheduleTicker from "@/Header/ScheduleTicker";
+import { cn } from "@/lib/utils";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 export default async function DesktopHeader() {
@@ -11,7 +13,7 @@ export default async function DesktopHeader() {
     return (
         <>
 
-            <div className="z-30 hidden md:flex flex-col w-full h-fit bg-primary">
+            <div className="z-30 hidden lg:flex flex-col w-full h-fit bg-primary">
                 <ScheduleTicker />
 
                 {/* LETTERHEAD - 1 */}
@@ -35,15 +37,32 @@ export default async function DesktopHeader() {
 
             </div>
 
-            <div className="z-30 hidden md:flex flex-col w-full gap-0 sticky top-0">
+            <div className="z-30 hidden lg:flex flex-col w-full gap-0 sticky top-0 shadow-lg">
 
                 {/* LETTERHEAD - 1 */}
-                <a href="/" className="flex items-center justify-center w-full h-20 bg-primary px-4">
-                    <div className="flex w-full items-center gap-4 max-w-[80rem] pl-2">
-                        <Image alt="Saint Ignatius Hockey Club" src={"/media/teams/ignatius-1.png"} width={24} height={24} />
-                        <span className="font-qb text-3xl text-no-trim pt-[5px]">WOLFPACK HOCKEY</span>
+                <div className="flex w-full items-center justify-center h-20 bg-primary">
+
+                    <div className="flex w-full items-center justify-between max-w-[80rem]">
+
+                        <a href="/" className="flex items-center justify-center w-full  px-4">
+                            <div className="flex w-full items-center gap-4 pl-2">
+                                <Image alt="Saint Ignatius Hockey Club" src={"/media/teams/ignatius-1.png"} width={24} height={24} />
+                                <span className="font-qb text-3xl text-no-trim pt-[5px]">WOLFPACK HOCKEY</span>
+                            </div>
+                        </a>
+                        <div className="flex items-center gap-2">
+                            <Button {...{
+                                variant: 'link',
+                                className: 'text-white'
+                            }}>Sign in</Button>
+                            <Button {...{
+                                size: "lg",
+                                variant: "secondary",
+                                className: "rounded-xs font-black! uppercase! tracking-tight px-4 h-9 bg-white! hover:bg-rich-gold!"
+                            }} >Register</Button>
+                        </div>
                     </div>
-                </a>
+                </div>
 
                 {/* SEPERATOR BARS */}
                 <div className="relative flex w-full h-2 bg-secondary"
@@ -66,12 +85,22 @@ export default async function DesktopHeader() {
                                     return (
                                         <NavigationMenu.NavigationMenuItem key={item.label} >
                                             <NavigationMenu.NavigationMenuTrigger>
-                                                <Button className={'h-10 border-none cursor-pointer font-qb px-3 text-sm bg-transparent! rounded-xs'}>
-                                                    <a className="" href={item.href}>{item.label}</a>
-                                                </Button>
+                                                <div className="flex gap-0 h-full w-fit">
+                                                    <Button className={cn(
+                                                        'h-10 border-none cursor-pointer font-qb text-sm bg-transparent! rounded-none!',
+                                                        item.children ? "pl-3 pr-0" : "px-3"
+                                                    )}>
+                                                        <a className="" href={item.href}>{item.label}</a>
+                                                    </Button>
+                                                    {item.children && (
+                                                        <Button className={'h-10 aspect-square bg-transparent! text-white'}>
+                                                            <ChevronDown />
+                                                        </Button>
+                                                    )}
+                                                </div>
                                             </NavigationMenu.NavigationMenuTrigger>
                                             <NavigationMenu.NavigationMenuContent className={'p-0'} >
-                                                <div className="flex flex-col gap-0 p-0 h-fit w-50">
+                                                <div className="flex flex-col gap-0 p-0 h-fit w-60">
                                                     {item.children?.map(child => {
 
                                                         return (

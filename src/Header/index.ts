@@ -44,38 +44,18 @@ export const MENU_ITEMS = [
         ]
     },
     {
-        label: "Stats",
-        href: '/stats',
+        label: "Media",
+        href: "/media",
         children: [
             {
-                label: "Player Stats",
-                href: '/stats/players'
+                label: "Photo Galleries",
+                href: '/photo-galleries'
             },
             {
-                label: "SHL Varsity Standings",
-                href: '/shl-standings'
-            },
-            {
-                label: "SHL AHL Standings",
-                href: '/shl-ahl-standings'
-            },
-            {
-                label: "SHL JV Standings",
-                href: '/shl-jv-standings'
-            },
-            {
-                label: "CCHL Varsity Standings",
-                href: '/cchl-varsity-standings'
-            },
-            {
-                label: "CCHL JV Standings",
-                href: '/cchl-jv-standings'
-            },
+                label: "Game Video",
+                href: '/game-video'
+            }
         ]
-    },
-    {
-        label: "Video",
-        href: "/video"
     },
     {
         label: "Future Wolfpack",
@@ -122,6 +102,10 @@ export const MENU_ITEMS = [
             {
                 label: "Alumni",
                 href: '/alumni'
+            },
+            {
+                label: "Contact",
+                href: '/contact'
             }
         ]
     }
